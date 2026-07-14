@@ -73,8 +73,18 @@ node server.js
 3. Configurações:
    - **Build Command:** `npm install`
    - **Start Command:** `node server.js`
-   - **Environment:** adicione as variáveis do `.env`
-4. Deploy automático a cada push na branch main
+4. **Variáveis de ambiente** (configurar no painel do Render em Environment):
+
+   | Variável | Obrigatória | Valor |
+   |----------|-------------|-------|
+   | `GEMINI_API_KEY` | Sim | Sua chave do Google AI Studio |
+   | `FRESHSERVICE_DOMAIN` | Não | Subdomínio (ex: `suaempresa`) |
+   | `FRESHSERVICE_API_KEY` | Não | API key do FreshService |
+   | `PORT` | Não | O Render define automaticamente |
+
+   > As variáveis são configuradas **no painel do Render**, não em arquivo. Nunca commite credenciais.
+
+5. Deploy automático a cada push na branch main
 
 ### Manter ativo (free tier)
 
@@ -119,6 +129,15 @@ Para aplicar mudanças da POC neste deploy:
 2. Commit e push — o Render faz deploy automático
 
 Não copie: `.env`, `data/embeddings-cache.json`, `data/feedbacks.json` (gerados em runtime).
+
+---
+
+## Repositórios Relacionados
+
+| Repo | Descrição |
+|------|-----------|
+| [clearit-copilot-backend](https://github.com/beandy-dev/clearit-copilot-backend) | Backend em produção (Render) |
+| [clearit-copilot-freshservice-app](https://github.com/beandy-dev/clearit-copilot-freshservice-app) | Widget FreshService (Custom App) |
 
 ---
 
