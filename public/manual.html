@@ -14,11 +14,16 @@ body { font-family: 'Inter', sans-serif; background: #ffffff; color: #1e293b; li
 .sidebar-toc {
   position: fixed; top: 0; left: 0; width: 240px; height: 100vh; background: #0f172a;
   padding: 30px 20px; overflow-y: auto; border-right: 1px solid #1e293b;
+  background: linear-gradient(180deg, #0f172a 0%, #0c1527 100%);
+}
+.sidebar-toc::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
 }
 .sidebar-toc h3 { font-size: 12px; font-weight: 700; color: #60a5fa; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 16px; }
-.sidebar-toc a { display: block; padding: 6px 0; color: #94a3b8; text-decoration: none; font-size: 12px; font-weight: 500; border-left: 2px solid transparent; padding-left: 12px; transition: all 0.15s; }
-.sidebar-toc a:hover { color: #e2e8f0; border-left-color: #3b82f6; }
-.sidebar-toc .brand { font-size: 14px; font-weight: 800; color: #fff; margin-bottom: 24px; }
+.sidebar-toc a { display: block; padding: 7px 0; color: #94a3b8; text-decoration: none; font-size: 12px; font-weight: 500; border-left: 2px solid transparent; padding-left: 12px; transition: all 0.15s; }
+.sidebar-toc a:hover { color: #ffffff; border-left-color: #3b82f6; background: rgba(59,130,246,0.05); }
+.sidebar-toc .brand { font-size: 15px; font-weight: 800; color: #fff; margin-bottom: 28px; padding-bottom: 16px; border-bottom: 1px solid #1e293b; }
 .sidebar-toc .brand span { color: #60a5fa; }
 
 /* Main content */
@@ -71,16 +76,16 @@ pre { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; paddin
 <nav class="sidebar-toc">
   <div class="brand">Clear<span>IT</span> Copilot</div>
   <h3>Manual</h3>
-  <a href="#descricao">1. Descrição</a>
-  <a href="#como-usar">2. Como Usar</a>
-  <a href="#funcionalidades">3. Funcionalidades</a>
-  <a href="#configuracao">4. Configuração</a>
-  <a href="#problemas">5. Problemas e Soluções</a>
-  <a href="#recomendacoes">6. Recomendações</a>
-  <a href="#nao-funciona">7. Limitações</a>
-  <a href="#proximos-passos">8. Próximos Passos</a>
-  <a href="#equipe">9. Equipe</a>
-  <a href="#glossario">10. Glossário</a>
+  <a href="#descricao">① Descrição</a>
+  <a href="#como-usar">② Como Usar</a>
+  <a href="#funcionalidades">③ Funcionalidades</a>
+  <a href="#configuracao">④ Configuração</a>
+  <a href="#problemas">⑤ Problemas</a>
+  <a href="#recomendacoes">⑥ Recomendações</a>
+  <a href="#nao-funciona">⑦ Limitações</a>
+  <a href="#proximos-passos">⑧ Próximos Passos</a>
+  <a href="#equipe">⑨ Equipe</a>
+  <a href="#glossario">⑩ Glossário</a>
 </nav>
 
 <div class="main-content">
@@ -109,7 +114,7 @@ pre { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; paddin
 <h3>Como o sistema resolve o problema</h3>
 
 <div style="text-align:center;margin:20px 0;">
-  <img src="fluxo-diagnostico.svg" alt="Fluxo de diagnóstico do analista" style="max-width:420px;width:100%;">
+  <img src="fluxo-diagnostico.svg" alt="Fluxo de diagnóstico do analista" style="max-width:100%;width:100%;cursor:zoom-in;" onclick="this.style.maxWidth=this.style.maxWidth==='100%'?'420px':'100%'">
   <p style="font-size:11px;color:#94a3b8;margin-top:8px;">Diagrama: fluxo conceitual do diagnóstico (etapas finais como Firestore e Fine-tuning são planejadas, não implementadas)</p>
 </div>
 <ol>
@@ -147,14 +152,14 @@ pre { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; paddin
 <h3>Arquitetura</h3>
 
 <div style="text-align:center;margin:20px 0;">
-  <img src="arquitetura-atual.svg" alt="Arquitetura atual do sistema" style="max-width:560px;width:100%;">
+  <img src="arquitetura-atual.svg" alt="Arquitetura atual do sistema" style="max-width:100%;width:100%;cursor:zoom-in;" onclick="this.style.maxWidth=this.style.maxWidth==='100%'?'560px':'100%'">
   <p style="font-size:11px;color:#94a3b8;margin-top:8px;">Diagrama: arquitetura atual em produção</p>
 </div>
 
 <details style="margin:16px 0;">
   <summary style="cursor:pointer;color:#3b82f6;font-weight:600;font-size:13px;">Ver arquitetura planejada (evolução futura)</summary>
   <div style="text-align:center;margin:16px 0;">
-    <img src="arquitetura-futura.svg" alt="Arquitetura futura" style="max-width:560px;width:100%;">
+    <img src="arquitetura-futura.svg" alt="Arquitetura futura" style="max-width:100%;width:100%;cursor:zoom-in;" onclick="this.style.maxWidth=this.style.maxWidth==='100%'?'560px':'100%'">
     <p style="font-size:11px;color:#94a3b8;margin-top:8px;">Diagrama: arquitetura planejada (Cloud Run, Vertex AI, Firestore, Fine-tuning)</p>
   </div>
 </details>
