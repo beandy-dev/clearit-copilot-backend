@@ -148,6 +148,8 @@ Não copie: `.env`, `data/embeddings-cache.json`, `data/feedbacks.json` (gerados
 | [sherlock-clearit-copilot](https://github.com/beandy-dev/sherlock-clearit-copilot) | POC completa (frontend + backend + docs) |
 | [clearit-copilot-freshservice-api](https://github.com/beandy-dev/clearit-copilot-freshservice-api) | Widget FreshService (Custom App) |
 
+📖 **Manual do Sistema:** [https://clearit-copilot.onrender.com/manual.html](https://clearit-copilot.onrender.com/manual.html)
+
 ---
 
 ## Equipe
