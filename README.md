@@ -161,8 +161,8 @@ Não copie: `.env`, `data/embeddings-cache.json`, `data/feedbacks.json` (gerados
 
 | Membro | Frente |
 |--------|--------|
-| [Beatriz Andrade Lourenço](https://linkedin.com/in/anbeaty) | Tecnologia, Produto e Negócios |
-| [Davi da Paz Mota](https://linkedin.com/in/davidapaz05) | Tecnologia e Produto |
-| [Maria Eduarda Ferreira Santos](https://linkedin.com/in/dudazfd) | Tecnologia e Produto |
-| [Maria Eloisa Gomes da Conceição](https://linkedin.com/in/mariaeloisa69) | Negócios e Estratégia |
-| [Phelipe Alexandre de Almeida](https://linkedin.com/in/phelipe134) | Tecnologia e Produto |
+| [Beatriz Andrade Lourenço](https://github.com/anbeaty) | Tecnologia, Produto e Negócios |
+| [Davi da Paz Mota](https://github.com/davidapaz05) | Tecnologia e Produto |
+| [Maria Eduarda Ferreira Santos](https://github.com/dudazfd) | Tecnologia e Produto |
+| [Maria Eloisa Gomes da Conceição](https://github.com/mariaeloisa69) | Negócios e Estratégia |
+| [Phelipe Alexandre de Almeida](https://github.com/phelipe134) | Tecnologia e Produto |
