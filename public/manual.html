@@ -8,25 +8,51 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'Inter', sans-serif; background: #ffffff; color: #1e293b; line-height: 1.8; font-size: 14px; }
-.container { max-width: 860px; margin: 0 auto; padding: 50px 40px; }
+.container { max-width: 900px; margin: 0 auto; padding: 0; display: flex; }
+
+/* Sidebar TOC */
+.sidebar-toc {
+  position: fixed; top: 0; left: 0; width: 240px; height: 100vh; background: #0f172a;
+  padding: 30px 20px; overflow-y: auto; border-right: 1px solid #1e293b;
+}
+.sidebar-toc h3 { font-size: 12px; font-weight: 700; color: #60a5fa; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 16px; }
+.sidebar-toc a { display: block; padding: 6px 0; color: #94a3b8; text-decoration: none; font-size: 12px; font-weight: 500; border-left: 2px solid transparent; padding-left: 12px; transition: all 0.15s; }
+.sidebar-toc a:hover { color: #e2e8f0; border-left-color: #3b82f6; }
+.sidebar-toc .brand { font-size: 14px; font-weight: 800; color: #fff; margin-bottom: 24px; }
+.sidebar-toc .brand span { color: #60a5fa; }
+
+/* Main content */
+.main-content { margin-left: 240px; padding: 50px 50px; max-width: 720px; }
+
+/* Header */
 .manual-header { margin-bottom: 40px; padding-bottom: 24px; border-bottom: 2px solid #e2e8f0; }
-.manual-header h1 { font-size: 32px; font-weight: 800; color: #0f172a; margin-bottom: 6px; }
+.manual-header h1 { font-size: 32px; font-weight: 800; color: #0f172a; margin-bottom: 6px; background: linear-gradient(135deg, #0f172a, #1e40af); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 .manual-header p { font-size: 15px; color: #64748b; }
 .manual-header .badges { margin-top: 12px; display: flex; gap: 8px; flex-wrap: wrap; }
-.manual-header .badge { background: #f1f5f9; padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 600; color: #475569; }
-h2 { font-size: 22px; font-weight: 700; color: #0f172a; margin-top: 44px; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid #e2e8f0; }
-h3 { font-size: 16px; font-weight: 600; color: #334155; margin-top: 24px; margin-bottom: 10px; }
+.manual-header .badge { background: #eff6ff; padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 600; color: #1d4ed8; }
+
+/* Sections */
+h2 { font-size: 22px; font-weight: 700; color: #0f172a; margin-top: 44px; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #eff6ff; }
+h2::before { content: ''; display: inline-block; width: 4px; height: 20px; background: #3b82f6; border-radius: 2px; margin-right: 10px; vertical-align: middle; }
+h3 { font-size: 16px; font-weight: 600; color: #1e40af; margin-top: 24px; margin-bottom: 10px; }
 h4 { font-size: 14px; font-weight: 600; color: #475569; margin-top: 18px; margin-bottom: 8px; }
 p { margin-bottom: 12px; color: #334155; }
 strong { color: #0f172a; }
 ul, ol { padding-left: 22px; margin: 10px 0 16px; }
 li { margin-bottom: 8px; color: #334155; }
-table { width: 100%; border-collapse: collapse; margin: 14px 0 20px; font-size: 13px; }
-th { background: #f8fafc; color: #475569; font-weight: 600; text-align: left; padding: 10px 14px; border: 1px solid #e2e8f0; font-size: 12px; }
-td { padding: 10px 14px; border: 1px solid #e2e8f0; color: #334155; vertical-align: top; }
-.callout { background: #f8fafc; border-left: 3px solid #3b82f6; padding: 14px 18px; border-radius: 0 6px 6px 0; margin: 16px 0; }
+
+/* Tables */
+table { width: 100%; border-collapse: collapse; margin: 14px 0 20px; font-size: 13px; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+th { background: #1e293b; color: #e2e8f0; font-weight: 600; text-align: left; padding: 10px 14px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.3px; }
+td { padding: 10px 14px; border-bottom: 1px solid #f1f5f9; color: #334155; vertical-align: top; }
+tr:hover td { background: #f8fafc; }
+
+/* Callouts */
+.callout { background: #f8fafc; border-left: 3px solid #3b82f6; padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 16px 0; box-shadow: 0 1px 2px rgba(0,0,0,0.03); }
 .callout-warn { border-left-color: #f59e0b; background: #fffbeb; }
 .callout-error { border-left-color: #ef4444; background: #fef2f2; }
+
+/* Code */
 code { background: #f1f5f9; padding: 2px 6px; border-radius: 4px; font-size: 12px; font-family: 'JetBrains Mono', monospace; color: #475569; }
 pre { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; margin: 12px 0; overflow-x: auto; font-size: 12px; font-family: 'JetBrains Mono', monospace; color: #334155; line-height: 1.6; }
 .footer { margin-top: 50px; padding-top: 20px; border-top: 1px solid #e2e8f0; font-size: 12px; color: #94a3b8; display: flex; justify-content: space-between; }
@@ -42,7 +68,22 @@ pre { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; paddin
 <body>
 <div class="container">
 
-<div style="margin-bottom:20px;"></div>
+<nav class="sidebar-toc">
+  <div class="brand">Clear<span>IT</span> Copilot</div>
+  <h3>Manual</h3>
+  <a href="#descricao">1. Descrição</a>
+  <a href="#como-usar">2. Como Usar</a>
+  <a href="#funcionalidades">3. Funcionalidades</a>
+  <a href="#configuracao">4. Configuração</a>
+  <a href="#problemas">5. Problemas e Soluções</a>
+  <a href="#recomendacoes">6. Recomendações</a>
+  <a href="#nao-funciona">7. Limitações</a>
+  <a href="#proximos-passos">8. Próximos Passos</a>
+  <a href="#equipe">9. Equipe</a>
+  <a href="#glossario">10. Glossário</a>
+</nav>
+
+<div class="main-content">
 
 <div class="manual-header">
   <h1>Manual do Sistema</h1>
@@ -56,21 +97,7 @@ pre { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; paddin
   </div>
 </div>
 
-<div class="toc">
-  <h3>Índice</h3>
-  <ol>
-    <li><a href="#descricao">Descrição do Sistema</a></li>
-    <li><a href="#como-usar">Como Usar</a></li>
-    <li><a href="#funcionalidades">Funcionalidades</a></li>
-    <li><a href="#configuracao">Configuração</a></li>
-    <li><a href="#problemas">Possíveis Problemas e Soluções</a></li>
-    <li><a href="#recomendacoes">Recomendações de Uso</a></li>
-    <li><a href="#nao-funciona">O que Ainda Não Está Funcionando</a></li>
-    <li><a href="#proximos-passos">Próximos Passos e Evolução</a></li>
-    <li><a href="#equipe">Equipe e Repositórios</a></li>
-    <li><a href="#glossario">Glossário</a></li>
-  </ol>
-</div>
+<!-- TOC na sidebar -->
 
 <!-- SEÇÃO 1 -->
 <h2 id="descricao">1. Descrição do Sistema</h2>
@@ -457,6 +484,7 @@ fdk pack --app-dir . --skip-coverage</pre>
   <span>Julho 2026</span>
 </div>
 
-</div>
+</div><!-- /main-content -->
+</div><!-- /container -->
 </body>
 </html>
