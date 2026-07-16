@@ -263,13 +263,10 @@ cp .env.example .env</pre>
       </div>
       <li><strong>Chat</strong> — fazer perguntas adicionais mantendo o contexto</li>
 
-      <!-- TODO: adicionar screenshot-5-chat.png quando disponível -->
-      <!--
       <div style="margin:12px 0;text-align:center;">
-        <img src="screenshot-5-chat.png" alt="Chat follow-up" style="max-width:100%;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+        <img src="screenshot-5-chat.png" alt="Chat follow-up" style="max-width:100%;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);cursor:zoom-in;" onclick="this.style.maxWidth=this.style.maxWidth==='100%'?'600px':'100%'">
         <p style="font-size:11px;color:#64748b;margin-top:6px;">Chat de follow-up mantendo contexto do diagnóstico</p>
       </div>
-      -->
     </ul>
   </li>
 </ol>
@@ -349,6 +346,14 @@ fdk pack --app-dir . --skip-coverage</pre>
   <tr><td><strong>Geração de diagnóstico</strong></td><td>Produz diagnóstico + ações + fonte</td><td>Top 3 fontes são enviadas como contexto ao Gemini Flash Lite, que gera resposta JSON estruturada</td></tr>
   <tr><td><strong>Mascaramento LGPD</strong></td><td>Dados sensíveis nunca chegam na IA</td><td>14 regras regex aplicadas na entrada (antes do embedding e geração) e na saída (resposta da IA)</td></tr>
   <tr><td><strong>Detecção de descrição vaga</strong></td><td>Não chuta quando não tem informação</td><td>Se descrição &lt;15 caracteres → modo triagem: perguntas de coleta ao invés de diagnóstico</td></tr>
+</table>
+
+<div style="margin:12px 0;text-align:center;">
+  <img src="screenshot-6-triagem.png" alt="Modo triagem" style="max-width:100%;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);cursor:zoom-in;" onclick="this.style.maxWidth=this.style.maxWidth==='100%'?'600px':'100%'">
+  <p style="font-size:11px;color:#64748b;margin-top:6px;">Chamado vago — sistema sugere coletar mais informações antes de diagnosticar</p>
+</div>
+
+<table>
   <tr><td><strong>Busca web automática</strong></td><td>Complementa quando base interna é insuficiente</td><td>Se confiança &lt;70% → Gemini busca docs de fabricantes, retorna título + fonte + data</td></tr>
   <tr><td><strong>Busca web sob demanda</strong></td><td>Analista pede pesquisa externa</td><td>Endpoint dedicado retorna resumo textual + fontes + análise de compatibilidade</td></tr>
   <tr><td><strong>Análise de compatibilidade</strong></td><td>Compara diagnóstico interno com fontes externas</td><td>Segunda chamada ao Gemini avalia: compatível / parcialmente compatível / divergente</td></tr>
@@ -446,6 +451,14 @@ fdk pack --app-dir . --skip-coverage</pre>
 
 <!-- SEÇÃO 6 -->
 <h2 id="recomendacoes">6. Recomendações de Uso</h2>
+
+<h3>Limitações conhecidas da interface</h3>
+<table>
+  <tr><th>Comportamento</th><th>Descrição</th><th>Status</th></tr>
+  <tr><td>Feedback pode ser enviado vazio</td><td>Os botões de avaliação (Útil/Parcial/Não) podem ser clicados sem o analista ter validado a resposta de fato.</td><td>Conhecida — validação de confirmação é melhoria futura</td></tr>
+  <tr><td>Avaliações valem apenas para o diagnóstico</td><td>O feedback registra a avaliação do diagnóstico inicial. Respostas do chat ou busca web não são avaliadas separadamente.</td><td>Comportamento intencional — escopo do MVP</td></tr>
+  <tr><td>Botões "Regerar" e "Buscar na web" acessíveis após chat</td><td>Após usar o chat, os botões de regerar e busca web continuam disponíveis e funcionais.</td><td>Comportamento esperado — permite ao analista iterar</td></tr>
+</table>
 
 <h3>Para obter melhores resultados</h3>
 <ul>
