@@ -393,6 +393,7 @@ fdk pack --app-dir . --skip-coverage</pre>
 <table>
   <tr><th>Sintoma</th><th>Causa provável</th><th>Solução</th></tr>
   <tr><td>Loading por mais de 30 segundos</td><td>Gemini demorou para responder (sobrecarga ou rate limit)</td><td>O sistema exibe mensagem de timeout automaticamente. Clique "Nova consulta" e tente novamente após alguns segundos.</td></tr>
+  <tr><td>Chat demora mais que o diagnóstico</td><td>Múltiplas chamadas seguidas estouram o rate limit do free tier (15 req/min)</td><td>Aguarde 30-60 segundos entre diagnóstico e chat. O timeout do chat é 45s — se estourar, tente novamente.</td></tr>
   <tr><td>Resposta genérica ou de baixa qualidade</td><td>Sistema operando sem API key (modo fallback)</td><td>Configure <code>GEMINI_API_KEY</code> válida no <code>.env</code> e reinicie o servidor.</td></tr>
   <tr><td>"Não foi possível conectar ao backend"</td><td>Backend offline, URL errada ou cold start do Render</td><td>Aguarde ~30 segundos (cold start) e tente novamente. Verifique se a URL do backend está correta.</td></tr>
   <tr><td>Widget não aparece no FreshService</td><td>App não instalado ou desabilitado</td><td>Admin → Apps → verificar se o ClearIT Copilot está ativo.</td></tr>
