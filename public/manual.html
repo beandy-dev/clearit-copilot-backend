@@ -465,6 +465,13 @@ fdk pack --app-dir . --skip-coverage</pre>
   <tr><td>Botões "Regerar" e "Buscar na web" acessíveis após chat</td><td>Após usar o chat, os botões de regerar e busca web continuam disponíveis e funcionais.</td><td>Comportamento esperado — permite ao analista iterar</td></tr>
 </table>
 
+<h3>Limitações técnicas conhecidas</h3>
+<table>
+  <tr><th>Limitação</th><th>Descrição</th><th>Impacto</th></tr>
+  <tr><td>Cache de embeddings invalida só por quantidade</td><td>Se o texto de um ticket for editado sem alterar o número total de tickets (40) ou KBs (13), o cache não é invalidado automaticamente.</td><td>Busca pode retornar resultados desatualizados. Solução: deletar <code>data/embeddings-cache.json</code> e reiniciar.</td></tr>
+  <tr><td>Rate limiter sem limpeza de memória</td><td>O mapa de IPs que controla o rate limit (30 req/min) acumula entradas indefinidamente sem expirar registros antigos.</td><td>Em execuções de longo prazo (dias/semanas), o consumo de memória cresce. Reiniciar o servidor resolve. Em produção real, substituir por Redis ou <code>express-rate-limit</code>.</td></tr>
+</table>
+
 <h3>Para obter melhores resultados</h3>
 <ul>
   <li><strong>Descreva com detalhes</strong> — "Backup falhou" é vago. "Commvault job de backup deu timeout no storage NetApp às 2h, servidor PROD-DB-01" gera diagnóstico preciso.</li>
