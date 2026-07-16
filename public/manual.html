@@ -435,7 +435,7 @@ fdk pack --app-dir . --skip-coverage</pre>
 <table>
   <tr><th>Item</th><th>Status</th><th>Motivo</th><th>Impacto</th></tr>
   <tr><td>Autenticação</td><td>Não implementado</td><td>MVP priorizou validação da IA. Auth é próximo passo.</td><td>API acessível por qualquer um com a URL.</td></tr>
-  <tr><td>Testes automatizados</td><td>Não implementado</td><td>Tempo insuficiente. 15 testes manuais foram realizados.</td><td>Mudanças futuras podem introduzir regressão.</td></tr>
+  <tr><td>Testes automatizados</td><td>✅ Implementado</td><td>19 testes com Vitest (mascaramento, busca, similaridade, dados). Executar com <code>npm test</code>.</td><td>—</td></tr>
   <tr><td>Fine-tuning do modelo</td><td>Não implementado</td><td>Requer 500+ interações validadas acumuladas.</td><td>Modelo usa conhecimento genérico, não especializado no domínio ClearIT.</td></tr>
   <tr><td>Re-ingestão de feedback</td><td>Não implementado</td><td>Requer pipeline de curadoria (evitar poluição da base).</td><td>Feedbacks são salvos mas não melhoram a busca automaticamente.</td></tr>
   <tr><td>Logging estruturado</td><td>Não implementado</td><td>MVP usa console.log.</td><td>Difícil diagnosticar problemas em produção sem dashboards.</td></tr>
@@ -450,7 +450,7 @@ fdk pack --app-dir . --skip-coverage</pre>
 <h3>Curto prazo (pós-entrega)</h3>
 <ul>
   <li><strong>Autenticação</strong> — JWT ou API key por instalação. Proteger a API.</li>
-  <li><strong>Testes automatizados</strong> — Unit + integration tests para garantir estabilidade.</li>
+  <li><strong>Testes automatizados</strong> — ✅ Implementado (19 testes Vitest). Expandir com testes de integração dos endpoints.</li>
   <li><strong>Logging estruturado</strong> — Tempo por etapa (mascaramento, embedding, busca, geração). Alertas para erros.</li>
   <li><strong>Pipeline de curadoria de feedback</strong> — Antes de re-ingerir: verificar duplicidade (&gt;85%), temporalidade (&gt;24h), volume (2+ analistas), revisão humana.</li>
 </ul>
