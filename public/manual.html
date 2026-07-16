@@ -223,9 +223,21 @@ cp .env.example .env</pre>
 <p>Acesse <strong>http://localhost:3000</strong> no navegador.</p>
 
 <h4>Passo a passo de uso</h4>
+
+<div style="margin:16px 0;text-align:center;">
+  <img src="screenshot-1-lista.png" alt="Tela inicial — lista de chamados" style="max-width:100%;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);cursor:zoom-in;" onclick="this.style.maxWidth=this.style.maxWidth==='100%'?'600px':'100%'">
+  <p style="font-size:11px;color:#64748b;margin-top:6px;">Tela inicial — lista de chamados ativos</p>
+</div>
+
 <ol>
   <li>Na <strong>lista de tickets</strong> à esquerda, clique em um chamado para ver seus detalhes</li>
   <li>Na <strong>sidebar direita</strong> (ClearIT Copilot), o campo já vem pré-preenchido com a descrição do ticket</li>
+
+  <div style="margin:12px 0;text-align:center;">
+    <img src="screenshot-2-ticket.png" alt="Detalhe do ticket com Copilot" style="max-width:100%;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);cursor:zoom-in;" onclick="this.style.maxWidth=this.style.maxWidth==='100%'?'600px':'100%'">
+    <p style="font-size:11px;color:#64748b;margin-top:6px;">Detalhe do ticket com o ClearIT Copilot na sidebar</p>
+  </div>
+
   <li>Clique <strong>"Analisar"</strong> para solicitar o diagnóstico</li>
   <li>Aguarde a resposta (2-15 segundos, dependendo do modo):
     <ul>
@@ -234,12 +246,30 @@ cp .env.example .env</pre>
     </ul>
   </li>
   <li>O resultado exibe: <strong>diagnóstico</strong>, <strong>ações recomendadas</strong>, <strong>fonte</strong> e <strong>nível de confiança</strong></li>
+
+  <div style="margin:12px 0;text-align:center;">
+    <img src="screenshot-3-diagnostico.png" alt="Diagnóstico gerado" style="max-width:100%;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);cursor:zoom-in;" onclick="this.style.maxWidth=this.style.maxWidth==='100%'?'600px':'100%'">
+    <p style="font-size:11px;color:#64748b;margin-top:6px;">Diagnóstico gerado com fonte citada e nível de confiança</p>
+  </div>
   <li>Após o resultado, você pode:
     <ul>
       <li><strong>Dar feedback</strong> (Útil / Parcial / Não ajudou)</li>
       <li><strong>Regerar</strong> a resposta</li>
       <li><strong>Buscar na web</strong> (pesquisa documentação de fabricantes)</li>
+
+      <div style="margin:12px 0;text-align:center;">
+        <img src="screenshot-4-web.png" alt="Busca na web" style="max-width:100%;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);cursor:zoom-in;" onclick="this.style.maxWidth=this.style.maxWidth==='100%'?'600px':'100%'">
+        <p style="font-size:11px;color:#64748b;margin-top:6px;">Pesquisa na internet com resumo, fontes e análise de compatibilidade</p>
+      </div>
       <li><strong>Chat</strong> — fazer perguntas adicionais mantendo o contexto</li>
+
+      <!-- TODO: adicionar screenshot-5-chat.png quando disponível -->
+      <!--
+      <div style="margin:12px 0;text-align:center;">
+        <img src="screenshot-5-chat.png" alt="Chat follow-up" style="max-width:100%;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+        <p style="font-size:11px;color:#64748b;margin-top:6px;">Chat de follow-up mantendo contexto do diagnóstico</p>
+      </div>
+      -->
     </ul>
   </li>
 </ol>
@@ -393,6 +423,14 @@ fdk pack --app-dir . --skip-coverage</pre>
 <table>
   <tr><th>Sintoma</th><th>Causa provável</th><th>Solução</th></tr>
   <tr><td>Loading por mais de 30 segundos</td><td>Gemini demorou para responder (sobrecarga ou rate limit)</td><td>O sistema exibe mensagem de timeout automaticamente. Clique "Nova consulta" e tente novamente após alguns segundos.</td></tr>
+</table>
+
+<div style="margin:12px 0;text-align:center;">
+  <img src="screenshot-3.5-diagnostico-timeout.png" alt="Timeout" style="max-width:100%;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);cursor:zoom-in;" onclick="this.style.maxWidth=this.style.maxWidth==='100%'?'600px':'100%'">
+  <p style="font-size:11px;color:#64748b;margin-top:6px;">Mensagem exibida quando o tempo de resposta é excedido</p>
+</div>
+
+<table>
   <tr><td>Chat demora mais que o diagnóstico</td><td>Múltiplas chamadas seguidas estouram o rate limit do free tier (15 req/min)</td><td>Evite usar "Buscar na web" e chat na mesma sessão. Fluxo recomendado: Analyze → Chat (funciona bem) OU Analyze → Buscar na web (separado). O uso de busca web + chat seguidos pode estourar o limite.</td></tr>
   <tr><td>Resposta genérica ou de baixa qualidade</td><td>Sistema operando sem API key (modo fallback)</td><td>Configure <code>GEMINI_API_KEY</code> válida no <code>.env</code> e reinicie o servidor.</td></tr>
   <tr><td>"Não foi possível conectar ao backend"</td><td>Backend offline, URL errada ou cold start do Render</td><td>Aguarde ~30 segundos (cold start) e tente novamente. Verifique se a URL do backend está correta.</td></tr>
